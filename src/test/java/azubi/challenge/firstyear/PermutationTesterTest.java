@@ -30,4 +30,16 @@ public class PermutationTesterTest {
         boolean actual = PermutationTester.isPermutationOfOther("abcde", "cabde");
         assertTrue(actual);
     }
+
+    @Test
+    public void permutations_should_be_permutation_of_eachother2() {
+        boolean actual = PermutationTester.isPermutationOfOther("abcde", "ecbda");
+        assertTrue(actual);
+    }
+
+ 
+    public void permutations_should_be_permutation_of_eachother3() {
+        boolean actual = PermutationTester.isPermutationOfOther("abcdtte", "ecbdf");
+        assertFalse(actual);
+    }
 }

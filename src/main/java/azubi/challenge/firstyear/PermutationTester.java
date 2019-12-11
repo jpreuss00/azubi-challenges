@@ -12,7 +12,21 @@ public class PermutationTester {
      * @param second String
      */
     public static boolean isPermutationOfOther(String first, String second) {
-        // implement me
+        if(first.isEmpty() && second.isEmpty()){
+            return true;
+        }
+
+        int lengthfirst = first.length();
+        int lengthsecond = second.length();
+
+        for(int i = 0; i < lengthfirst; i++){
+            if(i > 0){
+                lengthsecond--;
+            }
+            if(first.charAt(i) == second.charAt(lengthsecond-1)){
+                return true;
+            }
+        }
         return false;
     }
 }
