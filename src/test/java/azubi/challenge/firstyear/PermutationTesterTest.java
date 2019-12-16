@@ -37,7 +37,7 @@ public class PermutationTesterTest {
         assertTrue(actual);
     }
 
- 
+    @Test
     public void permutations_should_be_permutation_of_eachother3() {
         boolean actual = PermutationTester.isPermutationOfOther("abcdtte", "ecbdf");
         assertFalse(actual);
