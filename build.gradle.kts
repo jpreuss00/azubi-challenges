@@ -32,3 +32,5 @@ application {
     // Define the main class for the application
     mainClassName = "azubi.year.challenge.App"
 }
+
+
