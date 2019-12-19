@@ -16,18 +16,25 @@ public class PermutationTester {
             return true;
         }
 
-        int lengthfirst = first.length();
-
-        if (first.length() == second.length()) {
-            for (int i = 0; i < lengthfirst; i++) {
-                for (int j = 0; j < lengthfirst; j++) {
-                    if (first.charAt(i) == second.charAt(j)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (first.length() != second.length()) {
+            return false;
         }
-        return false;
+
+        int lengthfirst = first.length();
+        for (int i = 0; i < lengthfirst; i++) {
+            char newTestCharLetter = first.charAt(i);
+            second = deleteChar(newTestCharLetter, second);
+        }
+        if (second.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static String deleteChar(char newTestCharLetter, String second) {
+        String newTestStringLetter = String.valueOf(newTestCharLetter);
+        second = second.replaceFirst(newTestStringLetter, "");
+        return second;
     }
 }

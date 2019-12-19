@@ -42,4 +42,22 @@ public class PermutationTesterTest {
         boolean actual = PermutationTester.isPermutationOfOther("abcdtte", "ecbdf");
         assertFalse(actual);
     }
+
+    @Test
+    public void permutations_should_be_permutation_of_eachother4() {
+        boolean actual = PermutationTester.isPermutationOfOther("aaaa", "bbbb");
+        assertFalse(actual);
+    }
+
+    @Test
+    public void permutations_should_be_permutation_of_eachother5() {
+        boolean actual = PermutationTester.isPermutationOfOther("56746", "b435bbb");
+        assertFalse(actual);
+    }
+
+    @Test
+    public void permutations_should_be_permutation_of_eachother6() {
+        boolean actual = PermutationTester.isPermutationOfOther("123456", "635241");
+        assertTrue(actual);
+    }
 }
