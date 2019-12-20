@@ -8,7 +8,7 @@ import javax.swing.text.AttributeSet.CharacterAttribute;
 public class MirrorProduct {
 
     public static void main(String... args) {
-        TestProductForPalindrom(9999, 9999);
+        TestProductForPalindrom(999, 999);
     }
 
     /**
@@ -38,29 +38,35 @@ public class MirrorProduct {
         String length2 = Integer.toString(factor2);
         Boolean corrector = false;
 
-        if (length.length() == 4 && length2.length() == 4) {
+        if (length.length() == 3 && length2.length() == 3) {
 
-            int sum = (factor1 * factor2);
-            String sumAsString = Integer.toString(sum);
+            int product = (factor1 * factor2);
+            String productAsString = Integer.toString(product);
+            int counter = 0;
 
-            for (int i = 0; i < sum; i++) {
-                sum = (factor1 * factor2);
-                sumAsString = Integer.toString(sum);
-                for (int j = 1; j < sumAsString.length(); j++) {
-                    if (sumAsString.charAt(j) == sumAsString.charAt(sumAsString.length() - j)) {
+            for (int i = 0; i < product; i++) {
+                product = (factor1 * factor2);
+                productAsString = Integer.toString(product);
+                for (int j = 1; j < productAsString.length(); j++) {
+                    if (productAsString.charAt(j-1) == productAsString.charAt(productAsString.length() - j)) {
                         corrector = true;
                     } else {
                         corrector = false;
+                        // erst bis counter == 10 abwechselnd runter, dann factor reseten und nur einen factor runter
+                        if (factor1 > factor2) {
+                            factor1--;
+                            counter++;
+                        } else {
+                            factor2--;
+                            counter++;
+                        }
+                        counter++;
+                        break;
                     }
                 }
-                if (corrector == false) {
-                    if (factor1 > factor2) {
-                        factor1--;
-                    } else {
-                        factor2--;
-                    }
-                } else if (corrector == true) {
-                    System.out.println(sum);
+                if (corrector == true) {
+                    System.out.println(product);
+                    System.out.println(counter);
                     return true;
                 }
             }
