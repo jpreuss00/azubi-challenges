@@ -25,38 +25,30 @@ public class StringCompressor {
         int counter = 1;
         String newString = "";
 
-            for (int i = 0; i < length;) {
-                counter = 1;
-                for (int j = i + 1; j < length; j++) {
-                    System.out.println("i="+i + ", j=" +j);
+        for (int i = 0; i < length;) {
+            counter = 1;
+            for (int j = i + 1; j < length; j++) {
 
-                        if (input.charAt(i) == input.charAt(j)) {
-                            System.out.println("\tchars equal, counter increase to " + counter);
-                            counter++;
-                        } else {
-                            System.out.println("\t chars not equal, exit");
-                            break;
-                        }
-                }
-
-                if (counter > 1) {
-                    char newStringLetter = input.charAt(i);
-                    newString = newString + newStringLetter + counter;
-                    i = i + counter;
-                    System.out.println("\tcounter > 1, counter =" + counter + ", newString =" + newString);
+                if (input.charAt(i) == input.charAt(j)) {
+                    counter++;
                 } else {
-                    char newStringLetter = input.charAt(i);
-                    newString = newString + newStringLetter;
-                    i++;
-                    System.out.println("\tcounter <= 1, newString = " + newString);
+                    break;
                 }
             }
+            if (counter > 1) {
+                char newStringLetter = input.charAt(i);
+                newString = newString + newStringLetter + counter;
+                i = i + counter;
+            } else {
+                char newStringLetter = input.charAt(i);
+                newString = newString + newStringLetter;
+                i++;
+            }
+        }
 
         if (newString.length() == input.length()) {
-            System.out.println("lengthequal input: " + input + ", newstring: " + newString);
             return input;
         } else {
-            System.out.println("lengthequal not input: " + input + ", newstring: " + newString);
             return newString;
         }
     }
